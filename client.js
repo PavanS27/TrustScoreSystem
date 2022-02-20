@@ -2,11 +2,11 @@ const xmpp = require("simple-xmpp");
 const fs = require('fs')
 
 class Client{
-    constructor(jid,password,host,port){
+    constructor(jid,password){
         this.jid = jid;
         this.password = password;
-        this.host = host;
-        this.port = port;
+        this.host = "localhost";
+        this.port = 5222;
         this.data = [];
         this.score = 6
 
@@ -20,8 +20,7 @@ class Client{
             // }
             
         })
-        
-        
+    
         xmpp.on("error",error=>console.log(`something went wrong! ${error}`))
         
         xmpp.on("chat",(from,message)=>{
